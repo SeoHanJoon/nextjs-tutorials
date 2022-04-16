@@ -1,9 +1,17 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
+import classNames from 'classnames';
+import { useState } from 'react';
 import { Button } from '../stories/Button';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
+  const [detailOpen, setDetailOpen] = useState(false);
+
+  const toggleDetailContent = () => {
+    setDetailOpen(!detailOpen);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -15,6 +23,39 @@ const Home: NextPage = () => {
       <main className={styles.main}>
         <Button size="large" label="버튼" />
       </main>
+
+      <ul className={styles.radios}>
+        <li>
+          <label htmlFor="radio1">
+            <input type="radio" name="radioText" id="radio1" value="123" /> 월 9만원
+          </label>
+        </li>
+        <li>
+          <label htmlFor="radio2">
+            <input type="radio" name="radioText" id="radio2" value="123" /> 월 900만원
+          </label>
+        </li>
+      </ul>
+
+      <div className={styles.detailList}>
+        <div className={classNames(styles.detailHeader, detailOpen && styles.open)}>
+          <button type="button" onClick={toggleDetailContent}>
+            자세한 라이선스 안내
+          </button>
+        </div>
+        {detailOpen && (
+          <div className={styles.detailContent}>
+            <dl>
+              <dt>문서/서식</dt>
+              <dd>일반문서, 단체 내부문서, 홍보문서, 시험지, 교재</dd>
+              <dt>문서/서식</dt>
+              <dd>일반문서, 단체 내부문서, 홍보문서, 시험지, 교재</dd>
+              <dt>문서/서식</dt>
+              <dd>일반문서, 단체 내부문서, 홍보문서, 시험지, 교재</dd>
+            </dl>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

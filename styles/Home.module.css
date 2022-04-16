@@ -114,3 +114,70 @@
     flex-direction: column;
   }
 }
+
+/** 라디오 **/
+.radios li {
+  position: relative;
+}
+.radios li input[type='radio']:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -25px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: solid 1px #333;
+}
+.radios li input[type='radio']:checked::before {
+  background-color: #0070f3;
+}
+
+/** 토글영역 **/
+.detailList{
+  width: 100%;
+  margin-bottom: 100px;
+}
+.detailList .detailHeader {
+  position: relative;
+}
+.detailList .detailHeader button {
+  width: 100%;
+  padding: 15px 0 15px 30px;
+  background: #ddd;
+  border: none;
+  text-align: left;
+}
+.detailList .detailHeader:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 10px;
+  height: 2px;
+  background-color: #333;
+  transform: translateY(-50%);
+}
+.detailList .detailHeader:not(.open):after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  width: 10px;
+  height: 2px;
+  background-color: #333;
+  transform: translateY(-50%) rotate(90deg);
+}
+.detailList .detailContent dt,
+.detailList .detailContent dd {
+  display: inline-block;
+  margin: 0;
+}
+.detailList .detailContent dt {
+  width: 20%;
+  text-align: center;
+}
+.detailList .detailContent dd {
+  width: 79%;
+}
