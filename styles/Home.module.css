@@ -181,3 +181,46 @@
 .detailList .detailContent dd {
   width: 79%;
 }
+
+.gnb {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  text-align: center;
+}
+.gnb > li {
+  position: relative;
+  display: inline-block;
+  width: calc(100% / 4);
+  background-color: #ddd;
+  border-bottom: solid 1px #333;
+}
+.gnb > li a {
+  display: block;
+  padding: 16px 0;
+}
+.gnb > li:not(:last-child):after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 50%;
+  background-color: #333;
+  transform: translateY(-50%);
+}
+.gnb > li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  border:solid 1px #333;
+  background-color: #fff;
+}
+.gnb > li:hover ul {
+  display: block;
+}
+.gnb > li > ul > li:hover {
+  background-color: #dfdfdf;
+}
