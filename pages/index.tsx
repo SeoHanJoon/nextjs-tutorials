@@ -3,7 +3,31 @@ import Head from 'next/head';
 import classNames from 'classnames';
 import { useState } from 'react';
 import { Button } from '../stories/Button';
+
+import SingleGNB from '../components/SingleGNB/SingleGNB';
+import FullGNB from '../components/FullGNB/FullGNB';
+import FullGNBHoc from '../components/FullGNBHoc/FullGNBHoc';
+
 import styles from '../styles/Home.module.css';
+import { menuData } from '../lib/const';
+
+interface TextItemProps {
+  text: string;
+  color: any;
+}
+const TextItem = ({ text, color }: TextItemProps) => {
+  return (
+    <div
+      style={{
+        color,
+      }}
+    >
+      - {text}
+      <br />
+      ㅋㅋ
+    </div>
+  );
+};
 
 const Home: NextPage = () => {
   const [detailOpen, setDetailOpen] = useState(false);
@@ -24,88 +48,19 @@ const Home: NextPage = () => {
         <Button size="large" label="버튼" />
       </main>
 
-      <ul className={styles.gnb}>
-        <li>
-          <a href="#">GNB1</a>
-          <ul>
-            <li>
-              <a href="#">subMenu01</a>
-            </li>
-            <li>
-              <a href="#">subMenu02</a>
-            </li>
-            <li>
-              <a href="#">subMenu03</a>
-            </li>
-            <li>
-              <a href="#">subMenu04</a>
-            </li>
-            <li>
-              <a href="#">subMenu05</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">GNB2</a>
-          <ul>
-            <li>
-              <a href="#">subMenu11</a>
-            </li>
-            <li>
-              <a href="#">subMenu12</a>
-            </li>
-            <li>
-              <a href="#">subMenu13</a>
-            </li>
-            <li>
-              <a href="#">subMenu14</a>
-            </li>
-            <li>
-              <a href="#">subMenu15</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">GNB3</a>
-          <ul>
-            <li>
-              <a href="#">subMenu21</a>
-            </li>
-            <li>
-              <a href="#">subMenu22</a>
-            </li>
-            <li>
-              <a href="#">subMenu23</a>
-            </li>
-            <li>
-              <a href="#">subMenu24</a>
-            </li>
-            <li>
-              <a href="#">subMenu25</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">GNB4</a>
-          <ul>
-            <li>
-              <a href="#">subMenu31</a>
-            </li>
-            <li>
-              <a href="#">subMenu32</a>
-            </li>
-            <li>
-              <a href="#">subMenu33</a>
-            </li>
-            <li>
-              <a href="#">subMenu34</a>
-            </li>
-            <li>
-              <a href="#">subMenu35</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
+      <header
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          width: '100%',
+          borderBottom: 'solid 1px #333',
+        }}
+      >
+        {/* <SingleGNB /> */}
+        {/* <FullGNB data={menuData} /> */}
+        <FullGNBHoc data={menuData} />
+      </header>
 
       <ul className={styles.radios}>
         <li>
@@ -139,6 +94,11 @@ const Home: NextPage = () => {
           </div>
         )}
       </div>
+
+      <TextItem color="red" text="안녕하세요" />
+      <TextItem color="orange" text="반갑습니다" />
+      <TextItem color="yellow" text="즐거운" />
+      <TextItem color="green" text="금요일이에요" />
     </div>
   );
 };
